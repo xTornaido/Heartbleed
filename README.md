@@ -13,6 +13,7 @@ Server connects to given ip & port.
         ===> Commands <===
 
             "1": Used to view folders in specified directory.
+            "2": Used to send message box with message and title and get response.
 
 You can always add more commands if you like.
 
@@ -25,6 +26,7 @@ Inside of the function, commandHQ() just below the command variable write the fo
             message = str(["{name}", argument or ""])
             message = message.encode()
             conn.send(message)
+            ans = True
         except:
             reload()
 

