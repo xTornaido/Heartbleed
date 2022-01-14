@@ -20,22 +20,22 @@ You can always add more commands if you like.
 # To add a command (Server.py)
 Inside of the function, commandHQ() just below the command variable write the following code
 
-    ```JavaScript
-    if(command == "{number}"):
-        try:
-            argument = input(format + "Enter argument: ") # Use this if you need an argument
-            message = str(["{name}", argument or ""])
-            message = message.encode()
-            conn.send(message)
-            ans = True
-        except:
-            reload()
-    ```
+```JavaScript
+if(command == "{number}"):
+    try:
+        argument = input(format + "Enter argument: ") # Use this if you need an argument
+        message = str(["{name}", argument or ""])
+        message = message.encode()
+        conn.send(message)
+        ans = True
+    except:
+        reload()
+```
 
 Now just below the incoming_message variable write the following code:
 
-    if(incoming_message[0] == "{name}"):
-        print(format + "Data received: {}".format(incoming_message[1]))
+if(incoming_message[0] == "{name}"):
+    print(format + "Data received: {}".format(incoming_message[1]))
 
 Replace {number} with your command prefix & replace {name} with your command name.
 
