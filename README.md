@@ -34,22 +34,24 @@ if(command == "{number}"):
 
 Now just below the incoming_message variable write the following code:
 
+```JavaScript
 if(incoming_message[0] == "{name}"):
     print(format + "Data received: {}".format(incoming_message[1]))
+```
 
 Replace {number} with your command prefix & replace {name} with your command name.
 
 # To add a command (Client.py)
 Inside of the while loop, just below the incoming_message variable write the folling code
 
-    ```JavaScript
-    if(incoming_message[0] == "{name}"):
-            # Write your code
-            code = ""
-            end = str(['sfisd', code])
-            end = end.encode()
-            s.send(end)
-    ```
+```JavaScript
+if(incoming_message[0] == "{name}"):
+     # Write your code
+    code = ""
+    end = str(['sfisd', code])
+    end = end.encode()
+    s.send(end)
+```
 
 Replace {name} with your command name and make sure to set variable code's value to your function's end product.
 
