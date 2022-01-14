@@ -18,9 +18,9 @@ Server connects to given ip & port.
 You can always add more commands if you like.
 
 # To add a command (Server.py)
-Inside of the function, commandHQ() just below the command variable write the following code:
+Inside of the function, commandHQ() just below the command variable write the following code
 
-    ```javascript
+    ```JavaScript
     if(command == "{number}"):
         try:
             argument = input(format + "Enter argument: ") # Use this if you need an argument
@@ -40,9 +40,9 @@ Now just below the incoming_message variable write the following code:
 Replace {number} with your command prefix & replace {name} with your command name.
 
 # To add a command (Client.py)
-Inside of the while loop, just below the incoming_message variable write the folling code:
+Inside of the while loop, just below the incoming_message variable write the folling code
 
-    ```javascript
+    ```JavaScript
     if(incoming_message[0] == "{name}"):
             # Write your code
             code = ""
