@@ -20,6 +20,7 @@ You can always add more commands if you like.
 # To add a command (Server.py)
 Inside of the function, commandHQ() just below the command variable write the following code:
 
+    ```javascript
     if(command == "{number}"):
         try:
             argument = input(format + "Enter argument: ") # Use this if you need an argument
@@ -29,6 +30,7 @@ Inside of the function, commandHQ() just below the command variable write the fo
             ans = True
         except:
             reload()
+    ```
 
 Now just below the incoming_message variable write the following code:
 
@@ -40,12 +42,14 @@ Replace {number} with your command prefix & replace {name} with your command nam
 # To add a command (Client.py)
 Inside of the while loop, just below the incoming_message variable write the folling code:
 
+    ```javascript
     if(incoming_message[0] == "{name}"):
             # Write your code
             code = ""
             end = str(['sfisd', code])
             end = end.encode()
             s.send(end)
+    ```
 
 Replace {name} with your command name and make sure to set variable code's value to your function's end product.
 
