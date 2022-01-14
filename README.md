@@ -1,5 +1,5 @@
 # Heartbleed
- ## Advanced remote access tool.
+ ## Advanced remote access tool
 
  Don't use for malicious reasons.
  You can use it for reasons such as trolling your friends or learning from the code.
