@@ -5,8 +5,14 @@ import ctypes
 
 s = socket.socket()
 
+# START OF CONFIG
+
+startup = False
+
 ip = "127.0.0.1"
 port = 8080
+
+# END OF CONFIG
 
 def reset():
     global s
