@@ -1,4 +1,4 @@
-# Heartbleed
+# 🩸 Heartbleed
  ## Advanced remote access tool
 
  Don't use for malicious reasons.
@@ -55,6 +55,10 @@ if incoming_message[0] == "{name}":
 ```
 
 Replace {name} with your command name and make sure to set variable code's value to your function's end product.
+
+# Example of Usage
+
+
 
 # The End.
 
