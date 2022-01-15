@@ -58,7 +58,7 @@ Replace {name} with your command name and make sure to set variable code's value
 
 # Example of Usage
 
-<img align="left" alt="PNG" src="https://raw.githubusercontent.com/xTornaido/Heartbleed/master/images/example.png" width="740" height="240" />
+  <img align="left" alt="PNG" src="https://raw.githubusercontent.com/xTornaido/Heartbleed/master/images/example.png" width="961" height="470" />
 
 # The End.
 
